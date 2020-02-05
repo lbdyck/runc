@@ -1,0 +1,15 @@
+//JOBNAME  JOB ACCOUNT,&USERID,                                         00010000
+//         NOTIFY=&USERID,MSGCLASS=R                                    00020000
+//*                                                                     00030000
+//* TO USE THIS JCL ISSUE THE EDIT COMMAND RUNC 4 ON THE NEXT 2 RECORDS 00040000
+//* EDIT C EXECLIB &EXEC ALL                                            00050000
+//* EDIT C TSOCMD  &TSOCMD ALL                                          00060000
+//*                                                                     00070000
+//* NOTE: THE EDIT COMMAND WILL ALSO BE CHANGED BY THE RUNC             00080000
+//*                                                                     00090000
+//TMP      EXEC PGM=IKJEFT1B,DYNAMNBR=50                                00100000
+//SYSEXEC  DD DISP=SHR,DSN=EXECLIB                                      00110000
+//SYSTSPRT DD SYSOUT=*                                                  00120000
+//SYSTSIN  DD *                                                         00130000
+TSOCMD                                                                  00140000
+/*                                                                      00150000
