@@ -25,3 +25,4 @@
 *.xls binary
 *.xlsx binary
 *.xlsm binary
+RUNC.LOAD.XMIT git-encoding=BINARY zos-working-tree-encoding=BINARY binary
