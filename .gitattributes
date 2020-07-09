@@ -26,3 +26,4 @@
 *.xlsx binary
 *.xlsm binary
 RUNC.LOAD.XMIT git-encoding=BINARY zos-working-tree-encoding=BINARY binary
+RUNC.PDS/RUNCMOBI git-encoding=BINARY zos-working-tree-encoding=BINARY binary
