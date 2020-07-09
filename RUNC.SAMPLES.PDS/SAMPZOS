@@ -3,458 +3,474 @@
 * cons is used for display commands (change to sdsf if needed)
 
 * Display IPL Info
-cons d iplinfo
-cons d iplinfo,osprotect
-cons d iplinfo,zaapziip
-cons d iplinfo,ALLOC
-cons d iplinfo,CEE
-cons d iplinfo,CLOCK
-cons d iplinfo,CLPA
-cons d iplinfo,CMB
-cons d iplinfo,CMD
-cons d iplinfo,CON
-cons d iplinfo,COUPLE
-cons d iplinfo,CSA
-cons d iplinfo,DEVSUP
-cons d iplinfo,DIAG
-cons d iplinfo,FIX
-cons d iplinfo,GRS
-cons d iplinfo,GRSCNF
-cons d iplinfo,GRSRNL
-cons d iplinfo,GTZ
-cons d iplinfo,HZS
-cons d iplinfo,ILMLIB
-cons d iplinfo,ILMMODE
-cons d iplinfo,IOS
-cons d iplinfo,LNKAUTH
-cons d iplinfo,LOGCLS
-cons d iplinfo,LOGLMT
-cons d iplinfo,LOGREC
-cons d iplinfo,LPA
-cons d iplinfo,MAXCAD
-cons d iplinfo,MAXUSER
-cons d iplinfo,MLPA
-cons d iplinfo,MSTRJCL
-cons d iplinfo,NSYSLX
-cons d iplinfo,OMVS
-cons d iplinfo,OPI
-cons d iplinfo,OPT
-cons d iplinfo,PAK
-cons d iplinfo,PLEXCFG
-cons d iplinfo,PROD
-cons d iplinfo,PROG
-cons d iplinfo,RDE
-cons d iplinfo,REAL
-cons d iplinfo,RER
-cons d iplinfo,RSU
-cons d iplinfo,RSVNONR
-cons d iplinfo,RSVSTRT
-cons d iplinfo,SCH
-cons d iplinfo,SMF
-cons d iplinfo,SMS
-cons d iplinfo,SQA
-cons d iplinfo,SSN
-cons d iplinfo,SVC
-cons d iplinfo,SYSNAME
-cons d iplinfo,VAL
-cons d iplinfo,VIODSN
-cons d iplinfo,VRREGN
+sdsf d iplinfo
+sdsf d iplinfo,osprotect
+sdsf d iplinfo,zaapziip
+sdsf d iplinfo,ALLOC
+sdsf d iplinfo,CEE
+sdsf d iplinfo,CLOCK
+sdsf d iplinfo,CLPA
+sdsf d iplinfo,CMB
+sdsf d iplinfo,CMD
+sdsf d iplinfo,CON
+sdsf d iplinfo,COUPLE
+sdsf d iplinfo,CSA
+sdsf d iplinfo,DEVSUP
+sdsf d iplinfo,DIAG
+sdsf d iplinfo,FIX
+sdsf d iplinfo,GRS
+sdsf d iplinfo,GRSCNF
+sdsf d iplinfo,GRSRNL
+sdsf d iplinfo,GTZ
+sdsf d iplinfo,HZS
+sdsf d iplinfo,ILMLIB
+sdsf d iplinfo,ILMMODE
+sdsf d iplinfo,IOS
+sdsf d iplinfo,LNKAUTH
+sdsf d iplinfo,LOGCLS
+sdsf d iplinfo,LOGLMT
+sdsf d iplinfo,LOGREC
+sdsf d iplinfo,LPA
+sdsf d iplinfo,MAXCAD
+sdsf d iplinfo,MAXUSER
+sdsf d iplinfo,MLPA
+sdsf d iplinfo,MSTRJCL
+sdsf d iplinfo,NSYSLX
+sdsf d iplinfo,OMVS
+sdsf d iplinfo,OPI
+sdsf d iplinfo,OPT
+sdsf d iplinfo,PAK
+sdsf d iplinfo,PLEXCFG
+sdsf d iplinfo,PROD
+sdsf d iplinfo,PROG
+sdsf d iplinfo,RDE
+sdsf d iplinfo,REAL
+sdsf d iplinfo,RER
+sdsf d iplinfo,RSU
+sdsf d iplinfo,RSVNONR
+sdsf d iplinfo,RSVSTRT
+sdsf d iplinfo,SCH
+sdsf d iplinfo,SMF
+sdsf d iplinfo,SMS
+sdsf d iplinfo,SQA
+sdsf d iplinfo,SSN
+sdsf d iplinfo,SVC
+sdsf d iplinfo,SYSNAME
+sdsf d iplinfo,VAL
+sdsf d iplinfo,VIODSN
+sdsf d iplinfo,VRREGN
 
 * Display IPL Volume
-cons d u,iplvol
+sdsf d u,iplvol
 
 * Display MVS Allocation Settings
-cons d alloc,options
+sdsf d alloc,options
 
 * Display Catalog Info
-ejes f catalog,report
-ejes f catalog,report,cache
-ejes f catalog,report,performance
+sdsf f catalog,report
+sdsf f catalog,report,cache
+sdsf f catalog,report,performance
 
 * Display ASM Info
-cons d asm,plpa
-cons d asm,common
-cons d asm,local
-cons d asm,scm
-cons d asm,all
-cons d asm,pagedel
+sdsf d asm,plpa
+sdsf d asm,common
+sdsf d asm,local
+sdsf d asm,scm
+sdsf d asm,all
+sdsf d asm,pagedel
 
 * Display Auto Reply Info
-cons d autor
-cons d autor,policy
-cons d autor,wtors
+sdsf d autor
+sdsf d autor,policy
+sdsf d autor,wtors
 
 * Display Current LE options
-cons d cee,ceecopt
-cons d cee,ceedopt
-cons d cee,celqdopt
-cons d cee,celqropt
-cons d cee,all
+sdsf d cee,ceecopt
+sdsf d cee,ceedopt
+sdsf d cee,celqdopt
+sdsf d cee,celqropt
+sdsf d cee,all
 
 * Display Coupling Facility Info
-cons d cf
+sdsf d cf
 
 * Display Console Info
-cons d consoles
-cons d cngrp
+sdsf d consoles
+sdsf d cngrp
 
 * Display Diag parmlib info
-cons d diag
-ejes ro syp,d diag
+sdsf d diag
+sdsf ro syp,d diag
 
 * Display Data lookaside facility (DLF)
-cons d dlf
-cons d dlf,res=(*,*)
+sdsf d dlf
+sdsf d dlf,res=(*,*)
 
 * Display System Dump Info
-cons d d
+sdsf d d
 * dump dataset status
-cons d d,s
+sdsf d d,s
 * dump options
-cons d d,o
+sdsf d d,o
 
 * Display Extended MCS Info
-cons d emcs,summary
-cons d emcs,info
-cons d emcs,full
+sdsf d emcs,summary
+sdsf d emcs,info
+sdsf d emcs,full
 
 * Display Console info
-cons d c
+sdsf d c
 * display console buffers
-cons d c,b
+sdsf d c,b
 
 * Display External Timer (ETR)
-cons d etr
+sdsf d etr
 
 * GRS Displays
-cons d grs
-cons d grs,all
-cons d grs,system
-cons d grs,system,link
-cons d grs,rnl=a
-cons d grs,contention
-cons d grs,analyze,waiter
-cons d grs,analyze,depend
-cons d grs,res=(sysdsn,*)
-cons d grs,res=(syszckt.*)
-cons d grs,res=(syszpkt.*)
-cons d grs,res=(sysztkt.*)
-cons d grs,res=(*,&dsname)
+sdsf d grs
+sdsf d grs,all
+sdsf d grs,system
+sdsf d grs,system,link
+sdsf d grs,rnl=a
+sdsf d grs,contention
+sdsf d grs,analyze,waiter
+sdsf d grs,analyze,depend
+sdsf d grs,res=(sysdsn,*)
+sdsf d grs,res=(syszckt.*)
+sdsf d grs,res=(syszpkt.*)
+sdsf d grs,res=(sysztkt.*)
+sdsf d grs,res=(*,&dsname)
 
 * Display Generic Tracker
-cons d gtz,status
-cons d gtz,trackdata
-cons d gtz,exclude
-cons d gtz,debug
+sdsf d gtz,status
+sdsf d gtz,trackdata
+sdsf d gtz,exclude
+sdsf d gtz,debug
 
 * Display TSO/E Parmlib Info
-cons d ikjtso
+sdsf d ikjtso
 
 * Display I/O configuration
-cons d ios,config
-cons d ios,captucb
-cons d ios,cugrp
-cons d ios,dcm
-cons d ios,ekm
-cons d ios,zhpf
-cons d ios,ficon
-cons d ios,group
-cons d ios,hiperpav
-cons d ios,hyperwrite
-cons d ios,midaw
-cons d ios,mih
-cons d ios,recovery
-cons d ios,storage
-cons d ios,stop
+sdsf d ios,config
+sdsf d ios,captucb
+sdsf d ios,cugrp
+sdsf d ios,dcm
+sdsf d ios,ekm
+sdsf d ios,zhpf
+sdsf d ios,ficon
+sdsf d ios,group
+sdsf d ios,hiperpav
+sdsf d ios,hyperwrite
+sdsf d ios,midaw
+sdsf d ios,mih
+sdsf d ios,recovery
+sdsf d ios,storage
+sdsf d ios,stop
 
 * Display Missing Interrupt Handler (MIH) values
-cons d ios,mih,time=tape
-cons d ios,mih,time=all
+sdsf d ios,mih,time=tape
+sdsf d ios,mih,time=all
 
 * Display PCIE Parms
-cons d iqp
+sdsf d iqp
 
 * Display LLA Information
-cons d lla
+sdsf d lla
+sdsf d lla,stats
 
 * Display System Logger
-cons d logger
-cons d logger,ixgcnf
-cons d logger,logstream
-cons d logger,structure
+sdsf d logger
+sdsf d logger,ixgcnf
+sdsf d logger,logstream
+sdsf d logger,structure
 
 * Display Logrec info
-cons d logrec
-cons d logrec,dataset
-cons d logrec,all
+sdsf d logrec
+sdsf d logrec,dataset
+sdsf d logrec,all
 
 * Display System configuration info
-cons d m
-cons d m=cpu
-cons d m=dev
-cons d m=high
-cons d m=hsa
-cons d m=scm(detail)
-cons d m=storage
+sdsf d m
+sdsf d m=cpu
+sdsf d m=dev
+sdsf d m=high
+sdsf d m=hsa
+sdsf d m=scm(detail)
+sdsf d m=storage
 
 * Display message flood automation info
-cons d msgfld
-cons d msgfld,defaults
-cons d msgfld,jobs
-cons d msgfld,msgs
-cons d msgfld,parameters
+sdsf d msgfld
+sdsf d msgfld,defaults
+sdsf d msgfld,jobs
+sdsf d msgfld,msgs
+sdsf d msgfld,parameters
 
 * Display Message Suppression
-cons d mpf
+sdsf d mpf
 
 * Display Status of z/OS Unix System Services (OMVS)
-cons d omvs
-cons d omvs,activate=service
-cons d omvs,asid=all
-cons d omvs,file
-cons d omvs,limits
-cons d omvs,pipes,all
-cons d omvs,usermounts
-cons d omvs,waiters
+sdsf d omvs
+sdsf d omvs,o
+sdsf d omvs,s
+* display sockets
+sdsf d omvs,so
+sdsf d omvs,activate=service
+sdsf d omvs,asid=all
+sdsf d omvs,file
+sdsf d omvs,limits
+sdsf d omvs,pipes,all
+sdsf d omvs,usermounts
+sdsf d omvs,waiters
 * display any mount failures
-cons d omvs,mf
+sdsf d omvs,mf
 
 * Display operator data (command characters)
-cons d opdata
-cons d opdata,mode
-cons d opdata,monitor,full
+sdsf d opdata
+sdsf d opdata,mode
+sdsf d opdata,monitor,full
 
 * Display PCIE info
-cons d pcie
+sdsf d pcie
 
 * Display Parmlib Info
-cons d parmlib
+sdsf d parmlib
 
 * Display PPT (program properties table)
-cons d ppt,all
+sdsf d ppt,all
 
 * Display Registered Products
-cons d prod,registered
-cons d prod,state
+sdsf d prod,registered
+sdsf d prod,state
 
 * Dispaly APF List
-cons d prog,apf,all
+sdsf d prog,apf,all
 
 * Dispaly Prog defaults
-cons d prog,defaults
+sdsf d prog,defaults
 
 * Display Dynamic System Exits
-cons d prog,exit
-cons d prog,exit,all
+sdsf d prog,exit
+sdsf d prog,exit,all
 
 * Display Linklist
-cons d prog,lnklst
+sdsf d prog,lnklst
 
 * Display REFRPROT Option
-cons d prog,refrprot
+sdsf d prog,refrprot
 
 * Display TrackDirLoad Info
-cons d prog,trackdirload
+sdsf d prog,trackdirload
 
 * Display Active SLIP traps
-cons d slip
-cons d slip=&slipid
+sdsf d slip
+sdsf d slip=&slipid
 
 * Display SMF
-cons d smf
-cons d smf,o
-cons d smflim,summary
-cons d smflim,region
+sdsf d smf
+sdsf d smf,o
+sdsf d smf,m
+sdsf d smflim,summary
+sdsf d smflim,region
 
 * Display SMS Info
-cons d sms,active
-cons d sms,cache
-cons d sms,options
-ejes d sms,pdse,hspstats
-ejes d sms,pdse,hspstats,summary
-ejes d sms,pdse1,hspstats
-ejes d sms,pdse1,hspstats,summary
-ejes v sms,pdse,monitor
-ejes d sms,pdse,hspstats,unmanaged
-ejes d sms,pdse1,hspstats,unmanaged
-ejes d sms,pdse,hspstats,dsn(&userid..*)
-ejes d sms,pdse1,hspstats,dsn(&userid..*)
+sdsf d sms,active
+sdsf d sms,cache
+sdsf d sms,options
+sdsf d sms,pdse,hspstats
+sdsf d sms,pdse,hspstats,summary
+sdsf d sms,pdse1,hspstats
+sdsf d sms,pdse1,hspstats,summary
+sdsf v sms,pdse,monitor
+sdsf d sms,pdse,hspstats,unmanaged
+sdsf d sms,pdse1,hspstats,unmanaged
+sdsf d sms,pdse,hspstats,dsn(&userid..*)
+sdsf d sms,pdse1,hspstats,dsn(&userid..*)
 
 * Display Tape Library Info
-cons d sms,lib(all),detail
+sdsf d sms,lib(all),detail
+sdsf d sms,lib(all),status
+sdsf d sms,lib(all),listdri
+sdsf d sms,dri(all),status
+sdsf d sms,dri(all),detail
 
 * Display Active SubSystem Interfaces (SSI)
-cons d ssi,list
-cons d ssi,all
+sdsf d ssi,list
+sdsf d ssi,all
 
 * Display system symbols
-cons d symbols
+sdsf d symbols
 
 * Display Time
-cons d t
+sdsf d t
 
 * Display TCPIP info
-cons d tcpip
-cons d tcpip,mvstcp&sysid,netstat,all
-cons d tcpip,mvstcp&sysid,netstat,allconn
-cons d tcpip,mvstcp&sysid,netstat,config
-cons d tcpip,mvstcp&sysid,netstat,conn
-cons d tcpip,mvstcp&sysid,netstat,home
-cons d tcpip,mvstcp&sysid,netstat,portlist
-cons d tcpip,mvstcp&sysid,netstat,sockets
-cons d tcpip,mvstcp&sysid,netstat,stats
-cons d tcpip,mvstcp&sysid,netstat,ttls
+sdsf d tcpip
+sdsf d tcpip,tcpip,netstat,all
+sdsf d tcpip,tcpip,netstat,allconn
+sdsf d tcpip,tcpip,netstat,config
+sdsf d tcpip,tcpip,netstat,conn
+sdsf d tcpip,tcpip,netstat,home
+sdsf d tcpip,tcpip,netstat,portlist
+sdsf d tcpip,tcpip,netstat,sockets
+sdsf d tcpip,tcpip,netstat,stats
+sdsf d tcpip,tcpip,netstat,ttls
 
 * Display Telnet/TN3270 info
-cons d tcpip,telnet
-cons d tcpip,telnetd,telnet,profile
-cons d tcpip,telnetd,telnet,inactlus
-cons d tcpip,telnetd,telnet,connection
-
+sdsf d tcpip,telnet
+sdsf d tcpip,telnetd,telnet,profile
+sdsf d tcpip,telnetd,telnet,inactlus
+sdsf d tcpip,telnetd,telnet,connection
 * Display Trace Options
-cons d trace
+sdsf d trace
 
 * Display device status
 *
-cons d u,ctc
-cons d u,dasd
+sdsf d u,ctc
+sdsf d u,dasd
 **  Display ALL online DASD
-cons d u,dasd,online,,9999
-cons d u,graphic
-cons d u,tape
-cons d u,tp
-cons d u,ur
-cons d u,all
-cons d u,iplvol
-cons d u,dasd,alloc
+sdsf d u,dasd,online,,9999
+sdsf d u,graphic
+sdsf d u,tape
+sdsf d u,tp
+sdsf d u,ur
+sdsf d u,all
+sdsf d u,iplvol
+sdsf d u,dasd,alloc
 
 * Display UniCode services
-cons d uni
-cons d uni,service
-cons d uni,storage
-cons d uni,conversion
-cons d uni,normalization
-cons d uni,all
+sdsf d uni
+sdsf d uni,service
+sdsf d uni,storage
+sdsf d uni,conversion
+sdsf d uni,normalization
+sdsf d uni,all
 
 * Display Virtual Storage Info
-cons d virtstor,hvshare
-cons d virtstor,hvcommon
-cons d virtstor,lfarea
+sdsf d virtstor,hvshare
+sdsf d virtstor,hvcommon
+sdsf d virtstor,lfarea
 
 * Display WLM
-cons d wlm
-cons d wlm,systems
+sdsf d wlm
+sdsf d wlm,systems
 
 * Display XCF Info
-cons d xcf
+sdsf d xcf
 
 * displays active registered elements
-cons d xcf,armstatus
+sdsf d xcf,armstatus
 
 * displays coupling names & info
-cons d xcf,cf
+sdsf d xcf,cf
 
 * displays cfrm info by name
-cons d xcf,cf,cfnm=&crnmname
+sdsf d xcf,cf,cfnm=&crnmname
 
 * displays transport classes defined
-cons d xcf,classdef
+sdsf d xcf,classdef
 
 * displays current xcf couple info
-cons d xcf,couple
+sdsf d xcf,couple
 
 * displays signalling resource info
-cons d xcf,group
+sdsf d xcf,group
 
 * displays signalling resource info
-cons d xcf,localmsg
+sdsf d xcf,localmsg
 
 * xcf signalling pathin status
-cons d xcf,pathin
+sdsf d xcf,pathin
 
 * xcf signalling pathin status
-cons d xcf,pathin,device=all
+sdsf d xcf,pathin,device=all
 
 * xcf signalling pathout status
-cons d xcf,pathout
+sdsf d xcf,pathout
 
 * xcf signalling pathout status
-cons d xcf,pathout,device=all
+sdsf d xcf,pathout,device=all
 
 * displays all policy infomation
-cons d xcf,policy
+sdsf d xcf,policy
 
 * displays specific policy info
-cons d xcf,policy,type
+sdsf d xcf,policy,type
 
 * displays all systems in sysplex
-cons d xcf,sysplex all
+sdsf d xcf,sysplex all
 
 * displays all structures
-cons d xcf,str=strm=all
+sdsf d xcf,str=strm=all
 
 * displays list of cfrm policies
-cons d xcf,structure
+sdsf d xcf,structure
 
 * Display lost connections
-cons d xcf,str,status=lossconn
+sdsf d xcf,str,status=lossconn
 
 * ISKLM commands
-cons F ISKLMSRV,APPL='LIST -KEY'
-ejes F ISKLMSRV,APPL='LIST -CERT'
-ejes F ISKLMSRV,APPL='LIST -KEYSYM'
-ejes F ISKLMSRV,APPL='LISTCERTS'
+sdsf F ISKLMSRV,APPL='LIST -KEY'
+sdsf F ISKLMSRV,APPL='LIST -CERT'
+sdsf F ISKLMSRV,APPL='LIST -KEYSYM'
+sdsf F ISKLMSRV,APPL='LISTCERTS'
 
 * ICSF Display Commands (requires ICSF HCR77C1 FMID)
-cons  D ICSF,LIST
-cons  D ICSF,LIST,SYSPLEX=NO
-cons  D ICSF,LIST,SYSPLEX=YES
-cons  D ICSF,CARDS
-cons  D ICSF,KDS
-cons  D ICSF,MKS
-cons  D ICSF,OPT
-cons  D ICSF,REMOTE
+sdsf  D ICSF,LIST
+sdsf  D ICSF,LIST,SYSPLEX=NO
+sdsf  D ICSF,LIST,SYSPLEX=YES
+sdsf  D ICSF,CARDS
+sdsf  D ICSF,KDS
+sdsf  D ICSF,MKS
+sdsf  D ICSF,OPT
+sdsf  D ICSF,REMOTE
 
 * ACF/VTAM Display Commands
-ejes d net,vtamopts
-ejes d net,bfruse
-ejes d net,appls
-ejes d net,pathtab
-ejes d net,majnotes
+sdsf d net,vtamopts
+sdsf d net,bfruse
+sdsf d net,appls
+sdsf d net,pathtab
+sdsf d net,majnotes
 
 * Update APF List dynamically
-ejes setprog apf,add,dsname=&dsn,volume=&vol
+sdsf setprog apf,add,dsname=&dsn,volume=&vol
 
 * Replace Linklist - use some or all of these
-ejes d prog,lnklst
-ejes setprog lnklst define name(&newlnk) copyfrom(&oldlnk)
-ejes setprog lnklst add name(&newlnk) dsname(&dsnadd) vol(&voladd)
-ejes setprog lnklst delete name(&newlnk) dsname(&dsnkill)
-ejes setprog lnklst activate name(&newlnk)
+sdsf d prog,lnklst
+sdsf setprog lnklst define name(&newlnk) copyfrom(&oldlnk)
+sdsf setprog lnklst add name(&newlnk) dsname(&dsnadd) vol(&voladd)
+sdsf setprog lnklst delete name(&newlnk) dsname(&dsnkill)
+sdsf setprog lnklst activate name(&newlnk)
 
 * Update Dynamic LPA
-ejes setprog lpa,add,modname=&lmod,dsname=&dsn
-ejes setprog lpa,delete,modname=&lmod
+sdsf setprog lpa,add,modname=&lmod,dsname=&dsn
+sdsf setprog lpa,delete,modname=&lmod
 
 * CSSMTP Commands
-ejes f cssmtp,display,loglevel
-ejes f cssmtp,loglevel,level=&loglevel
+sdsf f cssmtp,display,loglevel
+sdsf f cssmtp,loglevel,level=&loglevel
+
+* Health Check Display
+sdsf F HZSPROC,DISPLAY STATUS
+
+* System Rexx
+sdsf f axr,sysrexx,st d r
+
 
 * zFS Commands
-ejes f zfs&sysid,query,all
-ejes f zfs&sysid,query,ctkc
-ejes f zfs&sysid,query,dataset
-ejes f zfs&sysid,query,file
-ejes f zfs&sysid,query,filesets
-ejes f zfs&sysid,query,iobydasd
-ejes f zfs&sysid,query,knpfs
-ejes f zfs&sysid,query,level
-ejes f zfs&sysid,query,lfs
-ejes f zfs&sysid,query,lock
-ejes f zfs&sysid,query,settings
-ejes f zfs&sysid,query,status
-ejes f zfs&sysid,query,stkm
-ejes f zfs&sysid,query,storage
-ejes f zfs&sysid,query,svi
-ejes f zfs&sysid,query,threads
-ejes f zfs&sysid,query,vm
+sdsf f zfs&sysid,query,all
+sdsf f zfs&sysid,query,ctkc
+sdsf f zfs&sysid,query,dataset
+sdsf f zfs&sysid,query,file
+sdsf f zfs&sysid,query,filesets
+sdsf f zfs&sysid,query,iobydasd
+sdsf f zfs&sysid,query,knpfs
+sdsf f zfs&sysid,query,level
+sdsf f zfs&sysid,query,lfs
+sdsf f zfs&sysid,query,lock
+sdsf f zfs&sysid,query,settings
+sdsf f zfs&sysid,query,status
+sdsf f zfs&sysid,query,stkm
+sdsf f zfs&sysid,query,storage
+sdsf f zfs&sysid,query,svi
+sdsf f zfs&sysid,query,threads
+sdsf f zfs&sysid,query,vm

@@ -1,7 +1,3 @@
-* ------------------------------------------------------- *
-* Some examples use ejes - if your installation uses sdsf *
-* then change ejes to sdsf in all commands.               *
-* ------------------------------------------------------- *
 * list current allocations (status history sysnames)
 lista sta hi sys
 
@@ -40,18 +36,18 @@ exec 'sys1.sispexec(isrfind)' 'lmod(&lmod) noispf dd(linklst)'
 exec 'sys1.sispexec(isrfind)' 'lmod(&lmod) noispf dd(lpalst)'
 
 * Analysis of the PDSE environment
-ejes v sms,pdse,analysis
-ejes v sms,pdse1,analysis
+sdsf v sms,pdse,analysis
+sdsf v sms,pdse1,analysis
 
 * Refresh the PDSE environment for a dataset
-ejes v sms,pdse,refresh,dsn(&pdsedsn)
-ejes v sms,pdse1,refresh,dsn(&pdsedsn)
+sdsf v sms,pdse,refresh,dsn(&pdsedsn)
+sdsf v sms,pdse1,refresh,dsn(&pdsedsn)
 
 * invoke pds command to verify a pds
 pds &pdsdsn ver :
 
 * Sample to display job status
-ejes st &job
+sdsf st &job
 
 * invoke PDSEGEN as an ISPF application
 select cmd(%pdsegen &pdsedsn)
