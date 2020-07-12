@@ -1,6 +1,4 @@
 * z/OS Commands
-* ejes is used for action commands (change to sdsf if needed)
-* cons is used for display commands (change to sdsf if needed)
 
 * Display IPL Info
 sdsf d iplinfo

@@ -41,6 +41,7 @@
   | Author:    Lionel B. Dyck                                  |
   |                                                            |
   | History:  (most recent on top)                             |
+  |            07/12/20 LBD - Define OMVS env stem             |
   |            07/04/20 LBD - Use Clear to clear screen        |
   |            06/29/20 LBD - Add generic installer prose      |
   |            06/28/20 LBD - Add text graphics                |
@@ -100,6 +101,18 @@ say "        ZZZZZZig "
 say "       ZZZZZZi                         Henri Kuiper & Lionel Dyck "
 say copies('-',73)
 
+
+  /* --------------------- *
+  | Set Default Env and   |
+  | Get current directory |
+  * --------------------- */
+  env.1 = '_BPX_SHAREAS=YES'
+  env.2 = '_BPX_SPAWN_SCRIPT=YES'
+  env.0 = 2
+  cmd = 'pwd'
+  x = bpxwunix(cmd,,so.,se.,env.)
+  ckotdir = strip(so.1)
+
   /* ------------------- *
   | Prompt for z/OS HLQ |
   * ------------------- */
@@ -112,17 +125,6 @@ say copies('-',73)
   end
   ckothlq = translate(ckothlq)
   end
-
-  /* --------------------- *
-  | Set Default Env and   |
-  | Get current directory |
-  * --------------------- */
-  env.1 = '_BPX_SHAREAS=YES'
-  env.2 = '_BPX_SPAWN_SCRIPT=YES'
-  env.0 = 2
-  cmd = 'pwd'
-  x = bpxwunix(cmd,,so.,se.,env.)
-  ckotdir = strip(so.1)
 
   /* -------------------------------------------------------- *
   | Issue the ls command to get file names and sizes for all |
@@ -810,6 +812,13 @@ $repodir                                                      +
   |    <https://www.gnu.org/licenses/>.                        |
   * ---------------------------------------------------------- */
 zigistat: Procedure
+
+  /* --------------------------------- *
+   | Define OMVS Environment Variables |
+   * --------------------------------- */
+  env.1 = '_BPX_SHAREAS=YES'
+  env.2 = '_BPX_SPAWN_SCRIPT=YES'
+  env.0 = 2
 
   /* --------------- *
   | Define defaults |
