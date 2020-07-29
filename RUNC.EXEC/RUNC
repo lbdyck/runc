@@ -1,5 +1,5 @@
 /* --------------------  rexx procedure  -------------------- */
- ver = 'V4.9 - Updated: 01/11/2019'
+ ver = 'V6.0 - Updated: 07/29/2020'
 /*
  | Name:      RUNC                                            |
  |                                                            |
@@ -9,6 +9,9 @@
  |            Including support for EDIT, (E)JES, SDSF,       |
  |            OMVS, and TSO Console commands (providing the   |
  |            user has the necessary authority).              |
+ |                                                            |
+ |            With the ability to execute inline ISPF         |
+ |            Edit Macros (see the do_editmac below)          |
  |                                                            |
  | Syntax:    RUNC options                                    |
  |                                                            |
@@ -76,6 +79,8 @@
  | Author:    Lionel B. Dyck                                  |
  |                                                            |
  | History:  (most recent on top)                             |
+ |        6.0 07/29/20 - Implement inline Edit Macro support  |
+ |        5.0 01/02/20 - Use ISFSLASH instead of ISFEXEC      |
  |        4.9 01/11/19 - Change default behavior for BS to Y  |
  |        4.8 12/26/18 - Add reporting on SET processing      |
  |        4.7 12/22/18 - Add SET NOPROMPT/PROMPT options      |
@@ -577,6 +582,8 @@
     if left(word(cmd,1),1) = '<' then do
        tcmd = cmd
        cmd = null
+       if translate(word(tcmd,1)) = '<EM>' then
+          call do_editmac
        if pos('DOC>',translate(tcmd)) > 0 then
           call do_doc
        if pos('<EXIT',translate(tcmd)) > 0 then
@@ -1156,7 +1163,7 @@
   rc = isfcalls('on')
   do until xcmd = ''
      parse value xcmd with cmd';'xcmd
-     Address SDSF "ISFEXEC '/"cmd"' (WAIT)"
+     Address SDSF "ISFSLASH '"cmd"' (WAIT)"
      erc = rc
      if erc > maxrc then maxrc = erc
      Address TSO
@@ -1364,6 +1371,128 @@
   Address ISREdit
   cmd = null
   return
+
+Do_EditMac:
+/* --------------------------------------------------------- *
+ | Function:  ISPF Edit Macro to Execute an inline Edit      |
+ |            macro within the active Edit Data              |
+ |                                                           |
+ | Usage Notes: Insert an edit macro inline in the edit data |
+ |              for processing by the EDITMAC command.       |
+ |                                                           |
+ |              <EM> starts the inline macro                 |
+ |              . . . any rexx edit macro code here          |
+ |              </EM> ends the inline macro                  |
+ |                                                           |
+ |              Placement should probably be as close to     |
+ |              the top of the data as possible.             |
+ |                                                           |
+ |              Suggest making the inline edit macro a       |
+ |              comment for the data it resides in and       |
+ |              use the offset parm if the comment is in     |
+ |              column 1.                                    |
+ |                                                           |
+ | Syntax: RUNC <offset>                                     |
+ |                                                           |
+ |         offset is the number of columns to skip to        |
+ |         extract the edit macro code thus ignoring any     |
+ |         comment characters.                               |
+ |                                                           |
+ | Selection: S on the record with the <em>                  |
+ |                                                           |
+ * --------------------------------------------------------- */
+
+  /* ------------------------ *
+  | Define default variables |
+  * ------------------------ */
+  null = ''
+  r = 0
+  hit = 0
+
+  /* ------------------------ *
+  | Validate the skip parm |
+  * ------------------------ */
+  if datatype(skip) /= 'NUM'
+  then skip = 1
+  if skip = 0 then skip = 1
+
+  /* -------------------------------------------------------- *
+  | Process the data records to find the inline edit macro   |
+  | and place the edit macro records into a stem variable.   |
+  |                                                          |
+  | The edit macro starts with <EM> and ends with </EM>      |
+  |                                                          |
+  | The skip is used to skip over text in the records that   |
+  | may be comments.                                         |
+  * -------------------------------------------------------- */
+  i = l
+  '(lastrec) = linenum .zlast'
+  do i = 1 to lastrec
+    '(data) = line' i
+    /* --------------------------------- *
+    | Extract the record from the data, |
+    | skipping over the skip.           |
+    * --------------------------------- */
+    data = strip(substr(data,skip))
+    /* ------------------------------------------ *
+    | Test for <EM> to start the data collection |
+    | and for </EM> to stop the data collection  |
+    * ------------------------------------------ */
+    if translate(left(data,4)) = '<EM>' then do
+      hit = 1
+      iterate
+    end
+    if translate(left(data,5)) = '</EM>' then do
+      hit = 0
+      leave
+    end
+    /* -------------------------------------------- *
+    | If hit is 0 then we are not collecting data. |
+    | If it is 1 then save the current record for  |
+    | processing.                                  |
+    * -------------------------------------------- */
+    if hit = 0 then iterate
+    r = r + 1
+    rec.r = data
+  end
+  /* ----------------------------------- *
+  | Save the number of records in rec.0 |
+  * ----------------------------------- */
+  rec.0 = r
+
+  /* ----------------------------------------------- *
+  | Define a temporary DDname and Dataset name.     |
+  | Allocate the temporary PDS and write the inline |
+  | edit macro's records to it.                     |
+  | Then Altlib the temporary PDS.                  |
+  * ----------------------------------------------- */
+  emdd = 'EMDD'random(4)
+  if sysvar('syspref') /= null
+  then emds = "'"sysvar("syspref")".temp."emdd
+  else emds = "'"sysvar("sysuid")".temp."emdd
+  emdslib = emds"'"
+  emds = emds"(edmac)'"
+  Address TSO
+  'alloc f('emdd') new space(1,1) tr recfm(v b) lrecl(255) blksize(0)' ,
+    'da('emds') dsorg(po) dir(1)'
+  'execio * diskw' emdd '(finis stem rec.'
+  'altlib act app(exec) da('emdslib')'
+
+  /* -------------------------------- *
+  | Now invoke the inline edit macro |
+  * -------------------------------- */
+  Address isredit
+  '%edmac'
+
+  /* -------------------------------------------------- *
+  | All done so free up the ALTLIB and Free and Delete |
+  | the temporary PDS.                                 |
+  * -------------------------------------------------- */
+  Address TSO
+  'altlib deact app(exec)'
+  'free f('emdd') delete'
+  Exit
+return
 
 /* ------------------------------------------------ *
  | Process the SLEEP command                        |
