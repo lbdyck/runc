@@ -260,7 +260,9 @@
 /* ------------------------------------ *
  | Check to see if under ISPF Edit/View |
  | and if not then exit with rc 8       |
+ | Then setup error environment         |
  * ------------------------------------ */
+
  Address ISPExec
  if rc /= 0 then do
     zedsmsg = 'Error'
@@ -268,6 +270,7 @@
     'setmsg msg(isrz001)'
     exit 8
     end
+ 'Control Errors Return'
  Address ISREdit
 
 /* ------------------- *
@@ -1471,6 +1474,9 @@ Do_EditMac:
   then emds = "'"sysvar("syspref")".temp."emdd
   else emds = "'"sysvar("sysuid")".temp."emdd
   emdslib = emds"'"
+  call outtrap 'x.'
+  address tso 'delete' emdslib
+  call outtrap 'off'
   emds = emds"(edmac)'"
   Address TSO
   'alloc f('emdd') new space(1,1) tr recfm(v b) lrecl(255) blksize(0)' ,
@@ -1944,7 +1950,6 @@ return
  * ------------------------------------------------------- */
  Check_Defaults:
  Address ISPExec
- 'Control Errors Return'
  'TBOpen RUNCSET Library(ISPPROF)'
  if rc = 8 then do
     runcset_new = 1
