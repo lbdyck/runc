@@ -1,6 +1,8 @@
 RUNC is an ISPF Edit macro that will invoke TSO, ISPF, (E)JES, SDSF, and
 TSO Console commands that are imbedded within the active EDIT or View
-data.
+data. It is extremely handy for when you need to use a command but can't
+remember the syntax, or can't remember which command to use. It is also
+very helpful in scripting a series of commands.
 
 ERC is provided as a sample command that can be implemented in the site ISPF
 command table. ERC will prompt the first time used for the dataset name of the

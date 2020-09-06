@@ -452,6 +452,9 @@ sdsf F HZSPROC,DISPLAY STATUS
 
 * System Rexx
 sdsf f axr,sysrexx,st d r
+sdsf f axr,sysrexx,r
+sdsf p axr
+sdsf S AXRPSTRT,AXR=SV
 
 
 * zFS Commands
