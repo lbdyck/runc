@@ -41,3 +41,7 @@ sdsf $ps&jobnum
 
 *  Purge TSU number nnnnn
 sdsf $pt&jobnum
+
+* Display Top Spool Users
+sdsf $dlimits(spool),long
+
